@@ -1,5 +1,6 @@
 using Base;
-using Propeller;
+using Player.Armor;
+using Player.Propeller;
 using UnityEngine;
 
 namespace Player
@@ -7,11 +8,13 @@ namespace Player
     public class PlayerController : IController
     {
         private readonly IPlayer _player;
+        private readonly ArmorController _armorController;
         private readonly PropellerController _propellerController;
         
         public PlayerController(IPlayer player)
         {
             _player = player;
+            _armorController = new ArmorController(_player.Armor);
             _propellerController = new PropellerController(_player.Propeller);
         }
 
@@ -19,15 +22,17 @@ namespace Player
         {
             _player.OnUpdatePosition += UpdatePosition;
             _player.OnCalculateRotation += CalculateRotation;
-            
+
+            _armorController.Initialize();
             _propellerController.Initialize();
         }
-        
+
         public void Dispose()
         {
             _player.OnUpdatePosition -= UpdatePosition;
             _player.OnCalculateRotation -= CalculateRotation;
-            
+
+            _armorController.Dispose();
             _propellerController.Dispose();
         }
 

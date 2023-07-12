@@ -1,5 +1,6 @@
-using System;
-using Propeller;
+﻿using System;
+using Player.Armor;
+using Player.Propeller;
 using UnityEngine;
 
 namespace Player
@@ -7,6 +8,10 @@ namespace Player
     public class PlayerView : MonoBehaviour, IPlayer
     {
         private const string Vertical = "Vertical";
+        
+        [SerializeField]
+        private ArmorView _armorView;
+        public IArmor Armor => _armorView;
         
         [SerializeField]
         private PropellerView _propeller;
