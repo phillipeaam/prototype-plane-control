@@ -1,7 +1,7 @@
 using Base;
 using UnityEngine;
 
-namespace Propeller
+namespace Player.Propeller
 {
     public class PropellerController : IController
     {

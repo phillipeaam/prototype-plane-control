@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Propeller
+namespace Player.Propeller
 {
     public class PropellerView : MonoBehaviour, IPropeller
     {
