@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Propeller;
 using UnityEngine;
 
@@ -36,7 +36,7 @@ namespace Player
             OnCalculateRotation?.Invoke();
         }
 
-        protected void RegisterInput()
+        private void RegisterInput()
         {
             // get the user's vertical input
             VerticalInput = Input.GetAxis(Vertical);
